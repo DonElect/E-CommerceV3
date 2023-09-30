@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome Page</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container-fluid text-center">
+    <div><h1>Store Products</h1></div>
+
+    <div th:if="${#messages}" class="alert alert-success text-center">
+        [[${message}]]
+    </div>
+
+    <div class="m-2">
+        <a class="h3" style="color: #669dff" th:href="@{/admin/addNewProduct}">Add New Products</a>
+    </div>
+
+    <div>
+        <table class="table table-bordered">
+            <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Category</th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <th:block th:each="product : ${productList}">
+                <tr>
+                    <td>[[${product.id}]]</td>
+                    <td>[[${product.category}]]</td>
+                    <td>[[${product.prodName}]]</td>
+                    <td>[[${product.quantity}]]</td>
+                    <td>[[${product.unitPrice}]]</td>
+                    <td>
+                        <a class="h4 m-3" style="color: blue"
+                           th:href="@{'/admin/edit/' + ${product.id}}">Edit</a>
+                        <a class="h4" style="color: blue" th:href="@{'/admin/delete/' + ${product.id}}">Delete</a>
+                    </td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

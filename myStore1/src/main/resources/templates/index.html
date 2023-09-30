@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome To My store</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+</head>
+<body>
+<header>
+    <div class="container-fluid text-center">
+        <nav style="background-color: red;
+                    width: auto;
+                    height: 100px;
+                    text-align: center">
+            <h2>WELCOME to DON FEAST</h2>
+        </nav>
+        <p>Are you a <a th:href="@{/login}">Customer</a> or <a th:href="@{/admin/login}">Admin</a></p>
+    </div>
+</header>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark"
+         style="background-color: tomato">
+        <div>
+            <a class="navbar-brand"> WELCOME TO DON FEAST </a>
+        </div>
+
+        <ul class="navbar-nav">
+            <h3><a href="<%=request.getContextPath()%>/list"
+                   class="nav-link">CATEGORIES</a></h3>
+            <jsp:useBean id="categories" scope="request" type="java.util.List"/>
+            <c:forEach var="category" items="${categories}">
+                <%--                     <li> <td><c:out value="${category}" /></td></li>--%>
+                <li><a style="color: gold" href="prod_cat?cat=<c:out value='${category}' />"><c:out value="${category}" /></a></li>
+            </c:forEach>
+        </ul>
+        <a  href="<%=request.getContextPath()%>/Cart">MY CART</a>
+    </nav>
+</header>
+</body>
+</html>
