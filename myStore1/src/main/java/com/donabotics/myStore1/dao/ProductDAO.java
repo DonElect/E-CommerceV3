@@ -9,7 +9,8 @@ import java.util.List;
 
 @Repository
 public interface ProductDAO extends CrudRepository<Product, Integer> {
-    public List<Product> findByCategory(String category);
+    List<Product> findByCategory(String category);
     @Query(value = "SELECT DISTINCT category FROM Product")
-    public List<String> viewCategories();
+    List<String> viewCategories();
+    List<Product> findByProdName(String productName);
 }

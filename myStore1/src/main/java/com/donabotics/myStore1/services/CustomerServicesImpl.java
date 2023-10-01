@@ -80,6 +80,13 @@ public class CustomerServicesImpl implements CustomerServices, CustomerLoginAndR
     }
 
     @Override
+    public List<Product> searchFor(String prodName) {
+        return entityManager.createNativeQuery("SELECT * FROM search_for(?)", Product.class)
+                .setParameter(1, prodName)
+                .getResultList();
+    }
+
+    @Override
     public Customer addNewCustomer(Customer customer) {
         return customerDAO.save(customer);
     }

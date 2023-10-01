@@ -9,7 +9,7 @@
 <div class="container-fluid">
     <div class="text-center"><h2>Admin Login</h2></div>
 
-    <div th:if="${#messages}" class="alert alert-success text-center">
+    <div th:if="${#messages}" class="alert alert-warning text-center">
         [[${message}]]
     </div>
 
@@ -30,7 +30,7 @@
             </div>
             <div class="text-center">
                 <button type="submit" class="btn btn-primary">Login</button>
-                <button type="button" class="btn btn-primary" onclick="cancelForm()">Register</button>
+                <button type="button" class="btn btn-secondary" onclick="cancelForm()">Register</button>
             </div>
         </div>
     </form>

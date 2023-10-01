@@ -14,7 +14,7 @@
     </div>
 
     <div class="m-2">
-        <a class="h3" style="color: #669dff" th:href="@{/admin/addNewProduct}">Add New Products</a>
+        <a class="h3 text-decoration-none" style="color: #669dff" th:href="@{/admin/addNewProduct}">Add New Products</a>
     </div>
 
     <div>
@@ -39,9 +39,9 @@
                     <td>[[${product.quantity}]]</td>
                     <td>[[${product.unitPrice}]]</td>
                     <td>
-                        <a class="h4 m-3" style="color: blue"
+                        <a class="h4 m-3 text-decoration-none" style="color: blue"
                            th:href="@{'/admin/edit/' + ${product.id}}">Edit</a>
-                        <a class="h4" style="color: blue" th:href="@{'/admin/delete/' + ${product.id}}">Delete</a>
+                        <a class="h4 text-decoration-none" style="color: blue" th:href="@{'/admin/delete/' + ${product.id}}">Delete</a>
                     </td>
                 </tr>
             </th:block>

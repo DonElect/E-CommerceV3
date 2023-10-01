@@ -6,16 +6,17 @@
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
 <body>
-<header >
+<header class="accordion-header" style="background-color: #a10adc">
     <div>
-        <h1>Welcome To Don Feast</h1>
+        <h1 style="color: gold;
+                    text-align: center">Welcome To Don Feast</h1>
     </div>
 
     <div>
         <ul>
             <h3>Categories</h3>
             <th:block th:each="category : ${categories}">
-                <li><a class="h4 m-3" style="color: blue"
+                <li><a class="h4 m-3 text-decoration-none" style="color: #003cff"
                    th:href="@{'/customer/category/' + ${category}}">[[${category}]]</a>
                 </li>
             </th:block>
@@ -24,13 +25,20 @@
 
     <div>
         <h3>
-            <a class="h4 m-3" style="color: red"
+            <a class="h4 m-3 text-decoration-none" style="color: deeppink"
                th:href="@{/customer/cart}" >My Cart</a>
         </h3>
     </div>
 </header>
 <div class="container-fluid text-center">
     <div><h1>Store Products</h1></div>
+
+    <div>
+        <form action="/customer/search">
+            <input  type="search" name="productName" placeholder="Product name" required>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+    </div>
 
     <div th:if="${#messages}" class="alert alert-success text-center">
         [[${message}]]
@@ -60,7 +68,7 @@
                     <td>[[${product.quantity}]]</td>
                     <td>[[${product.unitPrice}]]</td>
                     <td>
-                        <a class="h4 m-3" style="color: blue"
+                        <a class="h4 m-3 text-decoration-none" style="color: blue"
                            th:href="@{'/customer/addToCart/' + ${product.id}}">Add To Cart</a>
                     </td>
                 </tr>
