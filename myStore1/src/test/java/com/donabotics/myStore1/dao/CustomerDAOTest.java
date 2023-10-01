@@ -28,7 +28,7 @@ public class CustomerDAOTest {
         customer.setLastName("John");
         customer.setEmail("luke@gmail.com");
         customer.setPassword("john1234");
-        customer.setPhone("0812345948");
+        customer.setPhoneNumber("0812345948");
         customer.setAddress("Calabar street");
 
         repo.save(customer);

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Don Feast</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Cart([[${count}]])</h1>
+    </div>
+    <div>
+      <h3>
+        <a class="h4 m-3 text-decoration-none" style="color: #47d30c"
+           th:href="@{/customer}">Home</a>
+      </h3>
+    </div>
+  </header>
+
+<div class="container-fluid text-center">
+  <div>
+    <table class="table table-bordered">
+      <thead class="table-light">
+      <tr>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <th:block th:each="product : ${cart}">
+        <tr>
+          <td>[[${product.prodName}]]</td>
+          <td>[[${product.quantity}]]</td>
+          <td>[[${product.unitPrice}]]</td>
+          <td>
+
+            <a class="h4 m-3 text-decoration-none" style="color: blue"
+               th:href="@{'/customer/cart/updateQuantity/' + ${product.id}}">+</a>
+
+            <a class="h4 m-3 text-decoration-none" style="color: black"
+               th:href="@{'/customer/cart/updateQuantity/' + ${-1 * product.id}}">-</a>
+
+            <a class="h4 m-3 text-decoration-none" style="color: red"
+               th:href="@{'/customer/removeFromCart/' + ${product.id}}">Remove</a>
+          </td>
+        </tr>
+      </th:block>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

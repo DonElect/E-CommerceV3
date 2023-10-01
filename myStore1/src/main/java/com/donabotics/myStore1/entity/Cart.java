@@ -23,6 +23,4 @@ public class Cart {
     private Integer productId;
     @Column(name = "quantity")
     private Integer quantity;
-    @Column(name = "unit_price")
-    private Double unitPrice;
 }

@@ -3,15 +3,17 @@ package com.donabotics.myStore1.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
+@ToString
 @Entity
 @Table(name = "products")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "prod_id")
+    @Column(name = "product_id")
     private Integer id;
     @Column(name = "category")
     private String category;
@@ -22,14 +24,4 @@ public class Product {
     @Column(name = "unit_price")
     private Double unitPrice;
 
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", category='" + category + '\'' +
-                ", prodName='" + prodName + '\'' +
-                ", quantity=" + quantity +
-                ", unitPrice=" + unitPrice +
-                '}';
-    }
 }

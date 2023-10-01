@@ -6,9 +6,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-@Configuration
-@ComponentScan(basePackages = {"***", "***"})
+import java.util.List;
+
+//@Configuration
+//@ComponentScan(basePackages = {"***", "***"})
 @Repository
 public interface CustomerDAO extends CrudRepository<Customer, Integer> {
-
+    List<Customer> findByEmailAndPassword(String email, String password);
 }
