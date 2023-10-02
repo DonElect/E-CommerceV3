@@ -1,4 +1,4 @@
-package com.donabotics.myStore1.services;
+package com.donabotics.myStore1.serviceImpl;
 
 import com.donabotics.myStore1.dao.CartDAO;
 import com.donabotics.myStore1.dao.CustomerDAO;
@@ -6,6 +6,8 @@ import com.donabotics.myStore1.dao.ProductDAO;
 import com.donabotics.myStore1.entity.Cart;
 import com.donabotics.myStore1.entity.Customer;
 import com.donabotics.myStore1.entity.Product;
+import com.donabotics.myStore1.services.CustomerLoginAndRegistrationServices;
+import com.donabotics.myStore1.services.CustomerServices;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class CustomerServicesImpl implements CustomerServices, CustomerLoginAndRegistrationServices{
+public class CustomerServicesImpl implements CustomerServices, CustomerLoginAndRegistrationServices {
     private final ProductDAO productDAO;
     private final CustomerDAO customerDAO;
     private final EntityManager entityManager;

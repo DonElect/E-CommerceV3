@@ -6,10 +6,13 @@
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
 <body>
-<header class="accordion-header" style="background-color: #a10adc">
+<header class="accordion-header" style="background-image: url(/HeaderImage.jpeg);
+                                                            width: auto;
+                                                            height: auto">
     <div>
-        <h1 style="color: gold;
-                    text-align: center">Welcome To Don Feast</h1>
+        <h1 style="color: green;
+                    text-align: center;
+                    font-size: 60px">Welcome To Don Feast</h1>
     </div>
 
     <div>
@@ -24,13 +27,15 @@
     </div>
 
     <div>
-        <h3>
-            <a class="h4 m-3 text-decoration-none" style="color: deeppink"
+        <h2 style="color: #ff1428;
+                  text-align: right;
+                  position: relative;">
+            <a class="h4 m-3 text-decoration-none " style="font-size: 40px"
                th:href="@{/customer/cart}" >My Cart</a>
-        </h3>
+        </h2>
     </div>
 </header>
-<div class="container-fluid text-center">
+<div class="container-fluid text-center" style="background-color: rgba(204,20,255,0.99)">
     <div><h1>Store Products</h1></div>
 
     <div>
@@ -49,6 +54,7 @@
 <!--    </div>-->
 
     <div>
+
         <table class="table table-bordered">
             <thead class="table-dark">
             <tr>

@@ -5,16 +5,19 @@
     <title>Welcome To My store</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
 </head>
-<body>
+<body style="background-image: url(https://www.freecodecamp.org/news/content/images/size/w2000/2022/09/jonatan-pie-3l3RwQdHRHg-unsplash.jpg)">
 <header>
     <div class="container-fluid text-center">
-        <nav style="background-color: red;
-                    width: auto;
-                    height: 100px;
-                    text-align: center">
-            <h2>WELCOME to DON FEAST</h2>
+        <nav style="text-align: center">
+            <h1 style="color: gold;
+                        margin-top: 20%;
+                        font-size: 110px">WELCOME TO DON FEAST</h1>
         </nav>
-        <p>Are you a <a th:href="@{/customer/login}">Customer</a> or <a th:href="@{/admin/login}">Admin</a></p>
+        <p style="color: wheat;
+                        position: relative;
+                        font-size: 50px;
+                         ">Are you a <a class="text-decoration-none" th:href="@{/customer/login}">Customer</a> or an
+            <a class="text-decoration-none" th:href="@{/admin/login}">Admin</a></p>
     </div>
 </header>
 </body>

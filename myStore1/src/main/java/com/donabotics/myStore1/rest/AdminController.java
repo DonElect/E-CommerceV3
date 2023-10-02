@@ -3,7 +3,6 @@ package com.donabotics.myStore1.rest;
 import com.donabotics.myStore1.entity.Admin;
 import com.donabotics.myStore1.entity.Product;
 import com.donabotics.myStore1.services.AdminServices;
-import com.donabotics.myStore1.services.AdminServicesImpl;
 import com.donabotics.myStore1.services.CustomerNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,33 +21,6 @@ public class AdminController {
     @Autowired
     public AdminController(AdminServices services) {
         this.services = services;
-    }
-
-    @GetMapping("/admin/register")
-    public String register(Model model) {
-        model.addAttribute("admin", new Admin());
-
-        return "adminRegistration";
-    }
-
-    @PostMapping("/admin/newAdmin")
-    private String addAdmin(Admin admin, RedirectAttributes re) {
-        services.addNewAdmin(admin);
-        re.addFlashAttribute("message", "Welcome to Don Feast " + admin.getFirstName());
-
-        return "redirect:/admin/login";
-    }
-
-    @GetMapping("/admin/login")
-    public String loginPage(Model model) {
-        model.addAttribute("admin", new Admin());
-        return "adminLogin";
-    }
-
-    @GetMapping("/admin/login/verification")
-    public String verify(Admin admin) {
-        assert admin != null;
-        return services.verifyLogin(admin) ? "redirect:/admin" : "adminLogin";
     }
 
     @GetMapping("/admin")

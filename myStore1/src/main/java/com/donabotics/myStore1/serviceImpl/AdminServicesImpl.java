@@ -1,9 +1,12 @@
-package com.donabotics.myStore1.services;
+package com.donabotics.myStore1.serviceImpl;
 
 import com.donabotics.myStore1.dao.AdminDAO;
 import com.donabotics.myStore1.dao.ProductDAO;
 import com.donabotics.myStore1.entity.Admin;
 import com.donabotics.myStore1.entity.Product;
+import com.donabotics.myStore1.services.AdminLoginAndRegistrationServices;
+import com.donabotics.myStore1.services.AdminServices;
+import com.donabotics.myStore1.services.CustomerNotFoundException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class AdminServicesImpl implements AdminServices{
+public class AdminServicesImpl implements AdminServices, AdminLoginAndRegistrationServices {
     private final ProductDAO productDAO;
     private final AdminDAO adminDAO;
     private EntityManager entityManager;
