@@ -5,7 +5,10 @@
   <title>Don Feast</title>
   <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
-<body>
+<body style="background-image: url(/black-friday-elements-assortment.jpg);
+              background-size: cover;
+              width: 100px;
+              height: 100px">
   <header>
     <div>
       <h1>Cart([[${count}]])</h1>
@@ -20,7 +23,7 @@
 
 <div class="container-fluid text-center">
   <div>
-    <table class="table table-bordered">
+    <table class="table-bordered">
       <thead class="table-light">
       <tr>
         <th>Name</th>
@@ -33,10 +36,10 @@
       <tbody>
       <th:block th:each="product : ${cart}">
         <tr>
-          <td>[[${product.prodName}]]</td>
-          <td>[[${product.quantity}]]</td>
-          <td>[[${product.unitPrice}]]</td>
-          <td>
+          <td style="background-color: gold; padding: 15px 50px 15px 50px">[[${product.prodName}]]</td>
+          <td style="background-color: chartreuse">[[${product.quantity}]]</td>
+          <td style="background-color: mintcream">[[${product.unitPrice}]]</td>
+          <td style="background-color: yellowgreen">
 
             <a class="h4 m-3 text-decoration-none" style="color: blue"
                th:href="@{'/customer/cart/updateQuantity/' + ${product.id}}">+</a>
