@@ -11,7 +11,7 @@
 
     <div th:if="${#messages}" th:text="${message}" th:class="${'alert ' + alertClass}"/>
 
-    <form th:action="@{/admin/login/verification}" method="get" th:object="${admin}"
+    <form th:action="@{/admin/login}" method="post" th:object="${admin}"
           style="max-width: 500px; margin: 0 auto;">
         <div class="border border-secondary rounded p-3">
             <div class="form-group row">

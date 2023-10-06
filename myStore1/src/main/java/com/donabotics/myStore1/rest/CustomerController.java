@@ -1,6 +1,6 @@
 package com.donabotics.myStore1.rest;
 
-import com.donabotics.myStore1.dao.ProductDAO;
+import com.donabotics.myStore1.repository.ProductRepository;
 import com.donabotics.myStore1.entity.Product;
 import com.donabotics.myStore1.services.CustomerServices;
 import jakarta.servlet.http.HttpServletRequest;
@@ -17,12 +17,12 @@ import java.util.List;
 @Controller
 public class CustomerController {
     private final CustomerServices services;
-    private final ProductDAO productDAO;
+    private final ProductRepository productRepository;
 
     @Autowired
-    public CustomerController(CustomerServices services, ProductDAO productDAO){
+    public CustomerController(CustomerServices services, ProductRepository productRepository){
         this.services = services;
-        this.productDAO = productDAO;
+        this.productRepository = productRepository;
     }
 
     @GetMapping("/customer")

@@ -39,11 +39,11 @@ public class AdminLoginAndRegisterController {
         return "adminLogin";
     }
 
-    @GetMapping("/admin/login/verification")
+    @PostMapping("/admin/login")
     public String verify(Admin admin, RedirectAttributes re) {
         assert admin != null;
         if (services.verifyLogin(admin)){
-            return "redirect:/admin";
+            return "redirect:/admin_home";
         }
         re.addFlashAttribute("message", "Invalid Password or Email");
         re.addFlashAttribute("alertClass", "alert-danger");

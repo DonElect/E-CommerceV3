@@ -1,7 +1,7 @@
-package com.donabotics.myStore1.serviceImpl;
+package com.donabotics.myStore1.services.serviceImpl;
 
-import com.donabotics.myStore1.dao.AdminDAO;
-import com.donabotics.myStore1.dao.ProductDAO;
+import com.donabotics.myStore1.repository.AdminRepository;
+import com.donabotics.myStore1.repository.ProductRepository;
 import com.donabotics.myStore1.entity.Admin;
 import com.donabotics.myStore1.entity.Product;
 import com.donabotics.myStore1.services.AdminLoginAndRegistrationServices;
@@ -17,41 +17,41 @@ import java.util.Optional;
 
 @Service
 public class AdminServicesImpl implements AdminServices, AdminLoginAndRegistrationServices {
-    private final ProductDAO productDAO;
-    private final AdminDAO adminDAO;
+    private final ProductRepository productRepository;
+    private final AdminRepository adminRepository;
     private EntityManager entityManager;
 
     @Autowired
-    public AdminServicesImpl(ProductDAO productDAO, AdminDAO adminDAO, EntityManager entityManager) {
-        this.productDAO = productDAO;
-        this.adminDAO = adminDAO;
+    public AdminServicesImpl(ProductRepository productRepository, AdminRepository adminRepository, EntityManager entityManager) {
+        this.productRepository = productRepository;
+        this.adminRepository = adminRepository;
         this.entityManager = entityManager;
     }
 
     @Override
     public Admin addNewAdmin(Admin admin) {
-        return adminDAO.save(admin);
+        return adminRepository.save(admin);
     }
 
     @Override
     public List<Product> listAllProducts() {
-        return (List<Product>) productDAO.findAll();
+        return (List<Product>) productRepository.findAll();
     }
 
     @Override
     public Product addProduct(Product product) {
         product.setCategory(product.getCategory().toUpperCase());
-        return productDAO.save(product);
+        return productRepository.save(product);
     }
 
     @Override
     public void removeProduct(Product product) {
-        productDAO.delete(product);
+        productRepository.delete(product);
     }
 
     @Override
     public Product findById(Integer id) throws CustomerNotFoundException {
-        Optional<Product> product = productDAO.findById(id);
+        Optional<Product> product = productRepository.findById(id);
 
         if (product.isEmpty())
             throw new CustomerNotFoundException("Could not find any product with ID " + id);

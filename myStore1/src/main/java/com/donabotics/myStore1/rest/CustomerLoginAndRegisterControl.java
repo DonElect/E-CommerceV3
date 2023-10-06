@@ -29,12 +29,12 @@ public class CustomerLoginAndRegisterControl {
 
     @PostMapping("/customer/login/verification")
     public String verifyLogin(Customer customer, Model model, HttpServletRequest request, RedirectAttributes re) {
-        if (services.verifyLogin(customer).isEmpty()) {
+        if (services.verifyLogin(customer) == null) {
             re.addFlashAttribute("message", "Invalid Password or Email!");
             return "redirect:/customer/login";
         }
 
-        Customer verifiedCustomer = services.verifyLogin(customer).get(0);
+        Customer verifiedCustomer = services.verifyLogin(customer);
         model.addAttribute("customerName", customer.getFirstName());
         HttpSession session = request.getSession();
         session.setAttribute("customerId", verifiedCustomer.getId());

@@ -13,7 +13,7 @@
     [[${message}]]
   </div>
 
-  <form th:action="@{/admin/addNewProduct/save}" method="post" th:object="${product}"
+  <form th:action="@{/admin/products}" method="post" th:object="${product}"
         style="max-width: 500px; margin: 0 auto;">
     <div class="border border-secondary rounded p-3">
       <div class="form-group row">
@@ -32,7 +32,7 @@
           <input type="number" th:field="*{quantity}" class="form-control" required >
         </div>
 
-        <label class="col-sm-4 col-form-label">Unit Price</label>
+        <label class="col-sm-4 col-form-label">Unit Price ₦</label>
         <div class="col-sm-8">
           <input type="number" th:field="*{unitPrice}" class="form-control" required>
         </div>
@@ -46,7 +46,7 @@
 </div>
 <script type="text/javascript">
   function cancelForm(){
-    window.location = "[[@{/admin}]]";
+    window.location = "[[@{/admin_home}]]";
   }
 </script>
 </body>

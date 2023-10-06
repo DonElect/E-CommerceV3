@@ -1,8 +1,8 @@
-package com.donabotics.myStore1.serviceImpl;
+package com.donabotics.myStore1.services.serviceImpl;
 
-import com.donabotics.myStore1.dao.CartDAO;
-import com.donabotics.myStore1.dao.CustomerDAO;
-import com.donabotics.myStore1.dao.ProductDAO;
+import com.donabotics.myStore1.repository.CartRepository;
+import com.donabotics.myStore1.repository.CustomerRepository;
+import com.donabotics.myStore1.repository.ProductRepository;
 import com.donabotics.myStore1.entity.Cart;
 import com.donabotics.myStore1.entity.Customer;
 import com.donabotics.myStore1.entity.Product;
@@ -17,23 +17,23 @@ import java.util.List;
 
 @Service
 public class CustomerServicesImpl implements CustomerServices, CustomerLoginAndRegistrationServices {
-    private final ProductDAO productDAO;
-    private final CustomerDAO customerDAO;
+    private final ProductRepository productRepository;
+    private final CustomerRepository customerRepository;
     private final EntityManager entityManager;
-    private final CartDAO cartDAO;
+    private final CartRepository cartRepository;
 
     @Autowired
-    public CustomerServicesImpl(ProductDAO productDAO, CustomerDAO customerDAO,
-                                EntityManager entityManager, CartDAO cartDAO){
-        this.productDAO = productDAO;
-        this.customerDAO = customerDAO;
+    public CustomerServicesImpl(ProductRepository productRepository, CustomerRepository customerRepository,
+                                EntityManager entityManager, CartRepository cartRepository){
+        this.productRepository = productRepository;
+        this.customerRepository = customerRepository;
         this.entityManager = entityManager;
-        this.cartDAO = cartDAO;
+        this.cartRepository = cartRepository;
     }
 
     @Override
     public List<Product> listAll(){
-        return (List<Product>) productDAO.findAll();
+        return (List<Product>) productRepository.findAll();
     }
 
     @Transactional
@@ -57,12 +57,12 @@ public class CustomerServicesImpl implements CustomerServices, CustomerLoginAndR
 
     @Override
     public List<String> viewByCategory() {
-        return productDAO.viewCategories();
+        return productRepository.viewCategories();
     }
 
     @Override
     public List<Product> listByCategory(String category) {
-        return productDAO.findByCategory(category);
+        return productRepository.findByCategory(category);
     }
 
     @Transactional
@@ -90,11 +90,11 @@ public class CustomerServicesImpl implements CustomerServices, CustomerLoginAndR
 
     @Override
     public Customer addNewCustomer(Customer customer) {
-        return customerDAO.save(customer);
+        return customerRepository.save(customer);
     }
 
     @Override
-    public List<Customer> verifyLogin(Customer customer) {
-        return customerDAO.findByEmailAndPassword(customer.getEmail(), customer.getPassword());
+    public Customer verifyLogin(Customer customer) {
+        return customerRepository.findByEmailAndPassword(customer.getEmail(), customer.getPassword());
     }
 }

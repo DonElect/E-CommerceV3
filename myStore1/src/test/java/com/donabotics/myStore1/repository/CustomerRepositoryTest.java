@@ -1,4 +1,4 @@
-package com.donabotics.myStore1.dao;
+package com.donabotics.myStore1.repository;
 
 import com.donabotics.myStore1.entity.Customer;
 import org.junit.jupiter.api.Assertions;
@@ -13,11 +13,11 @@ import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
 @DataJdbcTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-@ContextConfiguration(loader= AnnotationConfigContextLoader.class, classes = CustomerDAO.class)
+@ContextConfiguration(loader= AnnotationConfigContextLoader.class, classes = CustomerRepository.class)
 @Rollback(false)
 @Configuration
-public class CustomerDAOTest {
-    @Autowired private CustomerDAO repo;
+public class CustomerRepositoryTest {
+    @Autowired private CustomerRepository repo;
 
 
     @Test
